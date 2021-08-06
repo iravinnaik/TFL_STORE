@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td> <img src="./images/Transflower.jpg" height="75" width="75">
+            </td>
+            <td>
+                <h1>Transflower Store</h1>
+            </td>
+        </tr>
+    </table>
+    <hr />
+    <a href="/">Home</a> | <a href="/about.html">About us</a> |<a href="/contact.html">Contact</a>|<a href="/login.html">Sign In</a>|<a href="/details.html"> Details</Details></a> |<a href="/cart.html">Cart</a>
+    <hr />
+    <h2>Register</h2>
+    <hr />
+        <table>
+            <tr>
+                <td>
+                    <label for="Name">Name</label>
+                </td>
+                <td>
+                    <input type="text" name="Name" required>
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="birthdate">birthdate</label>
+                </td>
+                <td>
+                    <input type="date" name="=birthdate" required>
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="textarea">address:</label>
+                </td>
+                <td>
+                    <input type="multiline" name="address" required>
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="email">email</label>
+                </td>
+                <td>
+                    <input type="text" name="email" id="username" required>
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+
+                    <label for="password">password</label>
+                </td>
+                <td>
+                    <input type="password" name="password" id="password" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+
+                    <label for="confirm password">confirm password</label>
+                </td>
+                <td>
+                    <input type="password" name="confirm password" required>
+                </td>
+            </tr>
+        </table>
+
+        <button onclick="onRegister()">Regisger</button>
+        <script>
+            var onRegister=function()
+            {
+                if(typeof(Storage)!=="undefiend"){  
+                    var txtUserName=document.getElementById("username");
+                    var userName=txtUserName.value;
+                    document.write(userName);
+                    var txtPassword=document.getElementById("password");
+                    var password=txtPassword.value;
+                    var validUser={
+                        "username":userName,
+                        "password":password
+                    }   
+                    localStorage.setItem("validuser",JSON.stringify(validUser));
+                }
+                else{
+                    var divId=document.getElementById("result");
+                    divId.innerHTML="Sorry, your browser does not support HTML 5 feature :WebStorage"
+                }
+            }
+        </script>
+</body>
+
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    </head>
+    <body>
+        <table>
+            <tr>
+                <td>        <img src="./images/Transflower.jpg" height="75" width="75">
+                </td>
+                <td>        <h1>Transflower Store</h1>
+                </td>
+            </tr>
+        </table>
+        <hr/>
+        <a href="/">Home</a> | <a href="/about.html">About us</a> |<a href="/contact.html">Contact</a>|<a href="/login.html">Sign In</a>|<a href="/details.html"> Details</Details></a> |<a href="/cart.html">Cart</a>
+        <table>
+        <tr>
+            <td><button id="btnSelect">Get orders</button></td>
+        </tr>
+        <tr>
+            <td>
+                <p id="para"></p>
+            </td>
+        </tr>
+        <tr>
+        <td><a href="bill.html">Bill</a></td>
+    </tr>
+    </table>
+
+    <script>
+           $(document).ready(function(){
+                      $("#btnSelect").click(function(){
+                           var p=document.getElementById("para");
+                     
+                           $.get("/api/orders", function(data, status){
+                                console.log(data);
+                                for(var i=0;i<data.length;i++)
+                                {  
+                                    p.innerHTML=p.innerHTML + " " +data[i].customerid+" " +data[i].itemname+" " 
+                                    +data[i].orderdate+" " +data[i].quantity+" " +data[i].price+"<br />";
+                                }                                                                             
+                                });
+                       });
+                    });
+    </script>
+
+    </body>
+    </html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <td>        <img src="./images/Transflower.jpg" height="75" width="75">
+                </td>
+                <td>        <h1>Transflower Store</h1>
+                </td>
+            </tr>
+        </table>
+        <hr/>
+        <a href="/">Home</a> | <a href="/about.html">About us</a> |<a href="/contact.html">Contact</a>|<a href="/login.html">Sign In</a>|<a href="/details.html"> Details</Details></a> |<a href="/cart.html">Cart</a>
+        <h2>Login</h2>
+        <hr/>
+        <!-- <form method="POST" action="/login"> -->
+        <table>
+        <tr>
+            <td><label>email</label></td>
+            <td><input type="text" name="email" id="username" required></td>  
+        </tr>
+        <tr>       
+                <td><label>password</label></td>
+                <td><input type="password" name="password" id="password" required></td>  
+          
+        </tr> 
+        <!-- <tr> 
+            <td></td>
+        <td>
+            <button type="submit">login
+        </td>
+    </tr>   -->
+</table>
+    <button onclick="validateUserClientSide()">Login</button>
+    <div id="result"></div>
+
+<script>
+    var validateUserClientSide=function()
+    {        
+        if(typeof(Storage)!=="undefiend")
+        {
+            //get data from localstorage
+            var strValidUser=localStorage.getItem("validuser");
+            var validUser=JSON.parse(strValidUser);
+
+            // get data from HTML controls of login.html
+            var txtUserName=document.getElementById("username");
+            var userName=txtUserName.value;
+            var txtPassword=document.getElementById("password");
+            var password=txtPassword.value;
+            
+            var status=false;
+            if(validUser.username == userName && validUser.password== password){
+                status=true;
+            }
+
+            if(status){
+                var divId=document.getElementById("result");
+                divId.innerHTML="Valid User !"
+            }
+            else{
+                var divId=document.getElementById("result");
+                divId.innerHTML="Invalid User !"
+            }
+        }
+    }
+</script>
+  
+        
+
+  
+</form>  
+<td><a href="register.html">Not an existing user? Sign up here.</a></td>
+    </body>
+
+</html>
